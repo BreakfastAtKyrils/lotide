@@ -2,6 +2,13 @@ const assert = require('chai').assert;
 const head   = require('../head');
 const tail   = require('../tail')
 const middle = require('../middle')
+const map    = require('../map')
+const flatten = require('../flatten')
+const countOnly = require('../countonly')
+const letterPositions = require('../letterPositions')
+const findKeyByValue = require('../findKeyByValue')
+const eqObjects = require('../eqObjects')
+const eqArrays = require('../eqArrays')
 
 describe("#head", () => {
   it("returns 1 for [1, 2, 3]", () => {
@@ -43,4 +50,83 @@ describe("#middle", () => {
   it("returns [3] for [2, 3, 4]", () => {
     assert.deepEqual(middle([2, 3, 4]), [3]);
   });
+});
+
+describe("#map", () => {
+  it("returns ['g', 'f', 'h'] for ['gg', 'ff', 'hh'], word => word[0]", () => {
+    assert.deepEqual(map(['gg', 'ff', 'hh'], word => word[0]), ['g', 'f', 'h']);
+  });
+  it("returns an empty array when given an empty array", () => {
+    assert.deepEqual(map([], word => word[0]), []);
+  });
+});
+
+describe("#flatten", () => {
+  it("returns [1, 2, 3, 4] for [[1, 2], 3, 4]", () => {
+    assert.deepEqual(flatten([[1, 2], 3, 4]), [1, 2, 3, 4]);
+  });
+  it("returns [1, 2, 3, 4] for [1, 2, 3, 4]", () => {
+    assert.deepEqual(flatten([1, 2, 3, 4]), [1, 2, 3, 4]);
+  });
+  it("returns [] for []", () => {
+    assert.deepEqual(flatten([]), []);
+  });
+});
+
+describe("#countOnly", () => {
+  const firstNames = [
+    "Karl",
+    "Salima",
+    "Agouhanna",
+    "Fang",
+    "Kavith",
+    "Jason",
+    "Salima",
+    "Fang",
+    "Joe"
+  ];
+  const results = countOnly(firstNames, { "Jason": true, "Karima": true, "Fang": true, "Agouhanna": false });
+  it("returns 1 for results['Jason']", () => {
+    assert.deepEqual(results["Jason"], 1);
+  });
+  it("returns undefined for results['Karima']", () => {
+    assert.deepEqual(results["Karima"], undefined);
+  });
+});
+
+describe("#letterPositions", () => {
+  it("returns {h: [0], e: [1], l: [2, 3], o: [4]} for 'hello'", () => {
+    assert.deepEqual(letterPositions('hello'), {h: [0], e: [1], l: [2, 3], o: [4]});
+  });
+  it("returns {} for ''", () => {
+    assert.deepEqual(letterPositions(''), {});
+  });
+});
+
+describe("#findKeyByValue", () => {
+  const bestTVShowsByGenre = { 
+    sci_fi: "The Expanse",
+    comedy: "Brooklyn Nine-Nine",
+    drama:  "The Wire"
+  };
+  it("returns 'drama' for (bestTVShowsByGenre, 'The Wire')", () => {
+    assert.deepEqual(findKeyByValue(bestTVShowsByGenre, "The Wire"), 'drama');
+  });
+  it("returns undefined for (bestTVShowsByGenre, 'That 70s Show')", () => {
+    assert.deepEqual(findKeyByValue(bestTVShowsByGenre, 'That 70s Show'), undefined);
+  });
+
+});
+
+describe("#eqObjects", () => {
+  const ab = { a: "1", b: "2" };
+  const ba = { b: "2", a: "1" };
+  const abc = { a: "1", b: "2", c: "3" };
+  it("returns true for (ab, ba))", () => {
+    assert.deepEqual(eqObjects(ab, ba), true);
+  });
+  it("returns false for (ab, abc))", () => {
+    assert.deepEqual(eqObjects(ab, abc), false);
+  });
+
 });

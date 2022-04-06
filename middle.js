@@ -12,5 +12,4 @@ const middle = function(source) {
     return [source[first]]
   }
 }
-
 module.exports = middle;
