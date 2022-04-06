@@ -1,14 +1,14 @@
 const assert = require('chai').assert;
 const head   = require('../head');
-const tail   = require('../tail')
-const middle = require('../middle')
-const map    = require('../map')
-const flatten = require('../flatten')
-const countOnly = require('../countonly')
-const letterPositions = require('../letterPositions')
-const findKeyByValue = require('../findKeyByValue')
-const eqObjects = require('../eqObjects')
-const eqArrays = require('../eqArrays')
+const tail   = require('../tail');
+const middle = require('../middle');
+const map    = require('../map');
+const flatten = require('../flatten');
+const countOnly = require('../countonly');
+const letterPositions = require('../letterPositions');
+const findKeyByValue = require('../findKeyByValue');
+const eqObjects = require('../eqObjects');
+const eqArrays = require('../eqArrays');
 
 describe("#head", () => {
   it("returns 1 for [1, 2, 3]", () => {
@@ -27,14 +27,14 @@ describe("#tail", () => {
     assert.deepEqual(tail(["Hello", "Lighthouse", "Labs"]), ["Lighthouse", "Labs"]);
   });
   it("returns [1] for ['Hello', 1]", () => {
-        assert.deepEqual(tail(["Hello", 1]), [1]);
+    assert.deepEqual(tail(["Hello", 1]), [1]);
   });
   it("returns [] for [1]", () => {
     assert.deepEqual(tail([1]), []);
-  }); 
+  });
   it("returns [] for []", () => {
     assert.deepEqual(tail([]), []);
-  }); 
+  });
 });
 
 describe("#middle", () => {
@@ -104,7 +104,7 @@ describe("#letterPositions", () => {
 });
 
 describe("#findKeyByValue", () => {
-  const bestTVShowsByGenre = { 
+  const bestTVShowsByGenre = {
     sci_fi: "The Expanse",
     comedy: "Brooklyn Nine-Nine",
     drama:  "The Wire"

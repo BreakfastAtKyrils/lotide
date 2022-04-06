@@ -5,10 +5,10 @@ const takeUntil = function(array, callback) {
     if (callback(item)) {
       break;
     }
-    results.push(item)
+    results.push(item);
   }
   return results;
-}
+};
 
 
 const data1 = [1, 2, 5, 7, 2, -1, 2, 4, 5];

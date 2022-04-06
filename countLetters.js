@@ -7,16 +7,15 @@ const assertEqual = function(actual, expected) {
 };
 
 const countLetters = function(string) {
-  let returnObject = {}
+  let returnObject = {};
   for (let char of string) {
-        if (char in returnObject) {
-          returnObject[char] ++;
-        }
-        else {
-          returnObject[char] = 1
-        }
-      }
+    if (char in returnObject) {
+      returnObject[char] ++;
+    } else {
+      returnObject[char] = 1;
+    }
+  }
   return returnObject;
-}
+};
 
-console.log(countLetters('ABBCCCDDDD'))
+console.log(countLetters('ABBCCCDDDD'));

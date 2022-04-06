@@ -13,7 +13,7 @@ const findKey = function(object, callback) {
     }
   }
   return undefined;
-}
+};
 
 
 console.log(findKey({
@@ -23,4 +23,4 @@ console.log(findKey({
   "elBulli":   { stars: 3 },
   "Ora":       { stars: 2 },
   "Akelarre":  { stars: 3 }
-}, x => x.stars === 4)) // => "noma"
+}, x => x.stars === 4)); // => "noma"
