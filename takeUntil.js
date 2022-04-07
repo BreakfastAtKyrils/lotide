@@ -1,3 +1,11 @@
+/**
+ * takes in an array and callback and 
+ * returns a slice of the array based on the criteria specified in the callback.
+ * @param {array} 
+ * @param {callback function} 
+ * @return {array} 
+ */
+
 const takeUntil = function(array, callback) {
   let results = [];
 

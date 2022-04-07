@@ -1,3 +1,9 @@
+/**
+ * takes in a string and returns all indices of letter positions in the string.
+ * @param {string} 
+ * @return {object} 
+ */
+
 const letterPositions = function(sentence) {
   const results = {};
   for (let i = 0; i < sentence.length; i++) {

@@ -1,3 +1,9 @@
+/**
+ * takes in an array and returns middle most element of the array.
+ * @param {array} 
+ * @return {element} 
+ */
+
 const middle = function(source) {
   if (source.length <= 2) {
     return [];
